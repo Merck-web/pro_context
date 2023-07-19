@@ -28,9 +28,11 @@
               <div
                   v-for="(indexColor) in children.count"
                   :key="indexColor"
+                  :style="{ 'background-color': children.color, 'cursor': 'pointer' }"
+                  @click="deleteSquare(parentIndex, childrenIndex)"
                   class="color"
-                  :style="{ 'background-color': children.color }"
-              />
+              >
+              </div>
             </div>
           </template>
         </template>
@@ -84,6 +86,9 @@ export default {
         [array[i], array[j]] = [array[j], array[i]];
       }
       return array;
+    },
+    deleteSquare(parentIndex, childrenIndex){
+      this.data[parentIndex].children[childrenIndex].count -= 1
     }
   }
 }
