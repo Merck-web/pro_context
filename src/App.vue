@@ -7,7 +7,9 @@
               :data.sync="checkBoxes"
               @allChecked="obj => checkBoxes[obj.index].value = obj.value"
           />
-          <RightAside/>
+          <RightAside
+              :data.sync="checkBoxes"
+          />
         </div>
       </div>
     </div>
@@ -32,6 +34,8 @@ export default {
           name: "list 1",
           field: "list",
           value: false,
+          randomize: false,
+          randomizeArr: [],
           children: [
             {
               name: "item 1",
@@ -67,6 +71,8 @@ export default {
           name: "list 2",
           field: "list",
           value: false,
+          randomize: false,
+          randomizeArr: [],
           children: [
             {
               name: "item 1",
@@ -102,6 +108,8 @@ export default {
           name: "list 3",
           field: "list",
           value: false,
+          randomize: false,
+          randomizeArr: [],
           children: [
             {
               name: "item 1",
@@ -137,6 +145,8 @@ export default {
           name: "list 4",
           field: "list",
           value: false,
+          randomize: false,
+          randomizeArr: [],
           children: [
             {
               name: "item 1",
@@ -170,7 +180,7 @@ export default {
         },
       ]
     }
-  }
+  },
 }
 </script>
 

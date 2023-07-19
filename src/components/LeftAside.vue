@@ -110,7 +110,7 @@ export default {
     },
     changeParentValue(parentIndex) {
       const result = this.data[parentIndex].value;
-      this.$emit(`update:${this.data[parentIndex].value}`, !result);
+      this.data[parentIndex].value = !result;
       for (const item of this.data[parentIndex].children) {
         item.value = !result;
       }
