@@ -93,6 +93,9 @@ export default {
 .right_wrapper {
   max-width: 500px;
   width: 100%;
+  @media (max-width: 1070px) {
+    max-width: 100%;
+  }
 
   .link_item {
     &:not(:last-child) {

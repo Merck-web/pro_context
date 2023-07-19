@@ -61,7 +61,11 @@
                 </label>
             </span>
             <span>
-              <span class="counter">{{item.count}}</span>
+              <input
+                  v-model="item.count"
+                  class="counter"
+                  @input="event => changeCountValue(event, parentIndex, childIndex)"
+              />
               <input
                   v-model="item.color"
                   type="color"
@@ -125,6 +129,10 @@ export default {
         element.style.height = 20 * this.data[parentIndex].children.length + "px";
         chevron.style.transform = 'rotate(-90deg)';
       }
+    },
+    changeCountValue(event, parentIndex, childIndex){
+      const newValue = event.target.value.replace(/\D/g, "");
+      this.data[parentIndex].children[childIndex].count = +newValue;
     }
   },
   mounted() {
@@ -137,6 +145,12 @@ export default {
 .left_wrapper {
   max-width: 500px;
   width: 100%;
+  margin-right: 20px;
+  @media (max-width: 1070px) {
+    margin-right: 0;
+    margin-bottom: 20px;
+    max-width: 100%;
+  }
 
   .child_ul {
     padding-left: 40px;
@@ -171,11 +185,15 @@ export default {
       width: 5px;
       background: black;
       pointer-events: none;
+      border-radius: 50%;
     }
   }
 
   .counter{
     margin-right: 5px;
+    max-width: 50px;
+    height: 15px;
+    border: none;
   }
 
   .color_picker{
